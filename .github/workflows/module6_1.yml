@@ -1,4 +1,4 @@
-# This is a basic workflow to help you get started with Actions
+#This is a basic workflow to help you get started with Actions
 
 name: Darth Vader Workflow
 
@@ -17,12 +17,12 @@ jobs:
     steps:
      - name: Set Darth Vader Quote
        id: set-quote
-       run: echo "darthvaderquote="I find your lack of faith disturbing" >> $VADER_OUTPUT
+       run: echo darthvaderquote="I find your lack of faith disturbing" >> $"VADER_OUTPUT"
   echovaderline:
     needs: setvaderline
     runs-on: ubuntu-latest
     steps: 
      - name: Read/Echo output from setvaderline
-       env: dev
-        VADER_OUTPUT: ${{needs.setvaderline.outputs.darthvaderquote}}
-       run: echo "$VADER_OUTPUT"
+       env:
+         VADER_OUTPUT: ${{needs.setvaderline.outputs.darthvaderquote}}
+       run: echo "VADER_OUTPUT"
