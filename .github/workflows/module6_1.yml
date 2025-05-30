@@ -38,11 +38,6 @@ name: Darth Vader Workflow
 # Controls when the workflow will run
 on:
   workflow_dispatch:
-   inputs:
-    environment:
-      description: "Choose Env"
-      required: true
-      default: "dev"
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -60,7 +55,9 @@ jobs:
     needs: setvaderline
     runs-on: ubuntu-latest
     steps: 
-     - name: Read/Echo output from setvaderline
-       env:
+    - name: Read/Echo output from setvaderline
+      env:
         VADER_OUTPUT: ${{needs.setvaderline.outputs.darthvaderquote}}
-       run: echo "VADER_OUTPUT"
+      run: echo "VADER_OUTPUT"
+      secret: ${{ secrets.secret }}
+      variables: ${{ vars.variables }}
