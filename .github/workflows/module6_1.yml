@@ -17,7 +17,7 @@ jobs:
     steps:
      - name: Set Darth Vader Quote
        id: set-quote
-       run: echo "darthvaderquote= I find your lack of faith disturbing" >> $VADER_OUTPUT
+       run: echo "darthvaderquote= I find your lack of faith disturbing" >> $GITHUB_OUTPUT
   echovaderline:
     needs: setvaderline
     runs-on: ubuntu-latest
