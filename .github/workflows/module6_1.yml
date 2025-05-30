@@ -17,12 +17,12 @@ jobs:
     steps:
      - name: Set Darth Vader Quote
        id: set-quote
-       run: echo darthvaderquote="I find your lack of faith disturbing" >> "$VADER_OUTPUT"
+       run: echo "darthvaderquote= I find your lack of faith disturbing" >> $VADER_OUTPUT
   echovaderline:
     needs: setvaderline
     runs-on: ubuntu-latest
     steps: 
-     - name: Read/Echo output from setvaderline
-       env:
-         VADER_OUTPUT: ${{needs.setvaderline.outputs.darthvaderquote}}
-       run: echo "$VADER_OUTPUT"
+       #env:
+    - run: |
+        darthvaderquote= "${{ needs.setvaderline.outputs.darthvaderquote }}"
+        echo "Darth Vader Quote: $darthvaderquote"
