@@ -25,4 +25,4 @@ jobs:
      - name: Read/Echo output from setvaderline
        env:
          VADER_OUTPUT: ${{needs.setvaderline.outputs.darthvaderquote}}
-       run: echo "VADER_OUTPUT"
+       run: echo "$VADER_OUTPUT"
