@@ -38,6 +38,11 @@ name: Darth Vader Workflow
 # Controls when the workflow will run
 on:
   workflow_dispatch:
+  inputs:
+    environment:
+      description: "Choose Env"
+        required: true
+        default: "dev"
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
